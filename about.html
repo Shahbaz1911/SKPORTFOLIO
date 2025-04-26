@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <nav id="sidebar-nav">
+      <ul class="sidebar-links">
+        <li>
+          <a href="index.html#profile" class="sidebar-link" data-section="profile">
+            <i class="fas fa-home sidebar-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="about.html" class="sidebar-link active" data-section="about">
+            <i class="fas fa-user sidebar-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#experience" class="sidebar-link" data-section="experience">
+            <i class="fas fa-briefcase sidebar-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="projects.html" class="sidebar-link" data-section="projects">
+            <i class="fas fa-code sidebar-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#contact" class="sidebar-link" data-section="contact">
+            <i class="fas fa-envelope sidebar-icon"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="hamburger-btn" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="top-menu">
+      <ul class="menu-links">
+        <li><a href="index.html#profile" onclick="toggleMenu()">Home</a></li>
+        <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+        <li><a href="index.html#experience" onclick="toggleMenu()">Experience</a></li>
+        <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+    <section id="about-detail">
+      <div class="about-detail-container">
+        <div class="about-detail-text animate-left">
+          <h1 class="title">About Me</h1>
+          <p>
+            I am an Electronic Engineer with over 2 years of experience in web
+            development and a passion for creating innovative solutions. My
+            interests include exploring cutting-edge technologies, designing
+            user-friendly interfaces, and diving into electronics projects. I
+            thrive on challenges and continuously seek to expand my skills in
+            programming and hardware integration.
+          </p>
+          <p>
+            Outside of work, I enjoy experimenting with DIY electronics,
+            learning new coding frameworks, and contributing to open-source
+            projects. My goal is to leverage my engineering background to build
+            impactful applications that solve real-world problems.
+          </p>
+        </div>
+        <div class="about-detail-image animate-image">
+          <img src="./assets/IMG_0203.jpeg" alt="About Me Image" class="about-detail-pic" />
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>Copyright © 2022 Shahbaz Khan. All Rights Reserved.</p>
+    </footer>
+    <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
+      <span class="theme-icon">🌙</span>
+    </button>
+    <script src="script.js"></script>
+  </body>
+</html>
