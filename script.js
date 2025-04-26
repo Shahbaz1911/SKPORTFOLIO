@@ -6,7 +6,9 @@ function toggleMenu() {
 }
 
 // Intersection Observer to add .visible class to sections when they come into view
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll(
+  "section, #about-detail, #projects-detail"
+);
 
 const observerOptions = {
   root: null,
@@ -26,6 +28,14 @@ const observer = new IntersectionObserver(observerCallback, observerOptions);
 
 sections.forEach((section) => {
   observer.observe(section);
+});
+
+// Make profile section visible on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const profileSection = document.getElementById("profile");
+  if (profileSection) {
+    profileSection.classList.add("visible");
+  }
 });
 
 // Update active sidebar link based on scroll position
