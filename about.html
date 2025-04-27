@@ -8,32 +8,321 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      /* Who Am I Section Styling */
+      .who-am-i-section {
+        margin: 4rem 0;
+        padding: 2rem 10rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .who-am-i-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+          
+      }
+      .who-am-i-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        width: 100%;
+        gap: 2rem;
+        background: var(--background-alt);
+        border: var(--border) 0.1rem solid;
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .who-am-i-container:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      .who-am-i-text {
+        flex: 1;
+        text-align: left;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .who-am-i-section.visible .who-am-i-text {
+        opacity: 1;
+        transform: translateX(0);
+        
+      }
+      .who-am-i-text h1 {
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+        position: relative;
+      }
+      .who-am-i-text h1::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 100px;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+      .who-am-i-text:hover h1::after {
+        width: 150px;
+      }
+      .who-am-i-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text);
+        margin-bottom: 1rem;
+      }
+      .typewriter {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 0.15em solid var(--primary);
+        animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+      }
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+      @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: var(--primary); }
+      }
+      [data-theme="dark"] .typewriter {
+        border-right-color: var(--text-light);
+      }
+      .who-am-i-image {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        transition: transform 0.3s ease;
+      }
+      .who-am-i-image:hover {
+        transform: scale(1.05);
+      }
+      .who-am-i-pic {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1rem;
+      }
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .who-am-i-image:hover .image-overlay {
+        opacity: 1;
+      }
+      .image-overlay p {
+        color: var(--text-light);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      .overlay-socials {
+        display: flex;
+        gap: 1rem;
+      }
+      .overlay-social-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+      .overlay-social-btn:hover {
+        transform: scale(1.2);
+        background: var(--text-light);
+      }
+      .overlay-social-btn i {
+        color: var(--text-light);
+        font-size: 1.2rem;
+      }
+      .who-am-i-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .who-am-i-btn {
+        padding: 0.75rem 1.5rem;
+        border: var(--primary) 0.1rem solid;
+        border-radius: 0.5rem;
+        background: var(--background);
+        color: var(--text-dark);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .who-am-i-btn:hover {
+        background: var(--primary);
+        color: var(--text-light);
+        transform: scale(1.1);
+      }
+      /* Resume-Like Styling for Education, Certifications, and Work Experience */
+      .resume-section ul {
+        list-style: none;
+        padding: 0;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .resume-section li {
+        background: var(--background-alt);
+        border-left: 4px solid var(--primary);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .resume-section li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      .resume-section li strong {
+        font-size: 1.3rem;
+        color: var(--text-dark);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .resume-section li p {
+        margin: 0.5rem 0 0;
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .resume-section li .timeline {
+        font-style: italic;
+        color: var(--secondary);
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+      }
+      .resume-section li i {
+        margin-right: 0.5rem;
+        color: var(--primary);
+      }
+      [data-theme="dark"] .resume-section li {
+        background: var(--background-alt);
+      }
+      [data-theme="dark"] .resume-section li strong {
+        color: var(--text-light);
+      }
+      [data-theme="dark"] .resume-section li p {
+        color: var(--text-light);
+      }
+      [data-theme="dark"] .resume-section li .timeline {
+        color: var(--secondary);
+      }
+      /* Quote Typewriter Animation */
+      .quote-container {
+        text-align: center;
+        margin: 4rem 0;
+      }
+      .quote-text {
+        font-size: 1.5rem;
+        font-style: italic;
+        color: var(--text-dark);
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 0.15em solid var(--primary);
+        animation: typing 4s steps(60, end) forwards, blink-caret 0.75s step-end infinite;
+      }
+      [data-theme="dark"] .quote-text {
+        color: var(--text-light);
+        border-right-color: var(--text-light);
+      }
+      /* Footer Social Icons Styling */
+      .footer-socials {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .footer-social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--background-alt);
+        border: var(--border) 0.1rem solid;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .footer-social-btn i {
+        font-size: 1.5rem;
+        color: var(--text-dark);
+      }
+      [data-theme="dark"] .footer-social-btn i {
+        color: var(--text-light);
+      }
+      .footer-social-btn:hover {
+        transform: scale(1.1);
+        background: var(--primary);
+        border-color: var(--text-light);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      .footer-social-btn:hover i {
+        color: var(--text-light);
+      }
+      .footer-social-btn.discord:hover i::before {
+        content: "\f39e";
+      }
+      .footer-social-btn.gmail:hover i::before {
+        content: "\f0e0";
+      }
+      .footer-social-btn.github:hover i {
+        transform: rotate(360deg);
+      }
+      .footer-social-btn.linkedin:hover i::before {
+        content: "\f08c";
+      }
+    </style>
   </head>
   <body>
     <nav id="sidebar-nav">
       <ul class="sidebar-links">
         <li>
-          <a href="index.html#profile" class="sidebar-link" data-section="profile">
+          <a href="index.html#profile" class="sidebar-link" data-section="profile" data-tooltip="Home">
             <i class="fas fa-home sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="about.html" class="sidebar-link active" data-section="about">
+          <a href="about.html" class="sidebar-link active" data-section="about" data-tooltip="About">
             <i class="fas fa-user sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="index.html#experience" class="sidebar-link" data-section="experience">
+          <a href="index.html#experience" class="sidebar-link" data-section="experience" data-tooltip="Experience">
             <i class="fas fa-briefcase sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="projects.html" class="sidebar-link" data-section="projects">
+          <a href="projects.html" class="sidebar-link" data-section="projects" data-tooltip="Projects">
             <i class="fas fa-code sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="index.html#contact" class="sidebar-link" data-section="contact">
+          <a href="index.html#contact" class="sidebar-link" data-section="contact" data-tooltip="Contact">
             <i class="fas fa-envelope sidebar-icon"></i>
           </a>
         </li>
@@ -53,36 +342,177 @@
         <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
       </ul>
     </nav>
-    <section id="about-detail">
-      <div class="about-detail-container">
-        <div class="about-detail-text animate-left">
-          <h1 class="title">About Me</h1>
-          <p>
-            I am an Electronic Engineer with over 2 years of experience in web
-            development and a passion for creating innovative solutions. My
-            interests include exploring cutting-edge technologies, designing
-            user-friendly interfaces, and diving into electronics projects. I
-            thrive on challenges and continuously seek to expand my skills in
-            programming and hardware integration.
+    <section class="who-am-i-section" id="who-am-i">
+      <div class="who-am-i-container">
+        <div class="who-am-i-text">
+          <h1>Who Am I</h1>
+          <p class="typewriter">
+            A curious Electronic Engineer with a passion for technology.
           </p>
           <p>
-            Outside of work, I enjoy experimenting with DIY electronics,
-            learning new coding frameworks, and contributing to open-source
-            projects. My goal is to leverage my engineering background to build
-            impactful applications that solve real-world problems.
+            I am a driven individual with a strong foundation in electronics and a growing expertise in software development. My journey began with a fascination for how things work, leading me to explore both hardware and software solutions.
           </p>
+          <p>
+            I enjoy tackling complex problems, collaborating with teams, and learning from every experience. My mission is to bridge the gap between technology and real-world applications, creating solutions that are both innovative and accessible.
+          </p>
+          <div class="who-am-i-buttons">
+            <button class="who-am-i-btn" onclick="location.href='https://linkedin.com/'">LinkedIn</button>
+            <button class="who-am-i-btn" onclick="location.href='index.html#contact'">Contact Me</button>
+          </div>
         </div>
-        <div class="about-detail-image animate-image">
-          <img src="./assets/IMG_0203.jpeg" alt="About Me Image" class="about-detail-pic" />
+        <div class="who-am-i-image">
+          <img src="./assets/IMG_0203.jpeg" alt="Shahbaz Khan" class="who-am-i-pic" />
+          <div class="image-overlay">
+            <p>Connect with Me!</p>
+            <div class="overlay-socials">
+              <a href="https://linkedin.com/" class="overlay-social-btn" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/" class="overlay-social-btn" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://discord.com/" class="overlay-social-btn" title="Discord">
+                <i class="fab fa-discord"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+    <section class="about-section resume-section" id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>Bachelor of Technology in Electronics & Communication</strong>
+          <span class="timeline">NSUT East Campus, Delhi, 2019-2023</span>
+          <p><i class="fas fa-graduation-cap"></i>CGPA: 8.8</p>
+        </li>
+        <li>
+          <strong>Senior Secondary Education (12th)</strong>
+          <span class="timeline">Decent Public School, Delhi</span>
+          <p><i class="fas fa-school"></i>Percentage: 78%</p>
+        </li>
+        <li>
+          <strong>Secondary School Education (10th)</strong>
+          <span class="timeline">Decent Public School, Delhi</span>
+          <p><i class="fas fa-school"></i>CGPA: 9.2</p>
+        </li>
+      </ul>
+    </section>
+    <section class="about-section resume-section" id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>
+          <strong>Python Programming</strong>
+          <span class="timeline">GUVI Geek Networks</span>
+          <p><i class="fas fa-certificate"></i>Completed a comprehensive course in Python programming, focusing on practical applications.</p>
+        </li>
+        <li>
+          <strong>HTML, CSS, & JavaScript Certification Course</strong>
+          <span class="timeline">Udemy</span>
+          <p><i class="fas fa-certificate"></i>Mastered front-end web development skills through hands-on projects.</p>
+        </li>
+        <li>
+          <strong>The Complete Introduction to C++ Programming</strong>
+          <span class="timeline">Udemy</span>
+          <p><i class="fas fa-certificate"></i>Developed proficiency in C++ programming for software development.</p>
+        </li>
+      </ul>
+    </section>
+    <section class="about-section resume-section" id="work-experience">
+      <h2>Work Experience</h2>
+      <ul>
+        <li>
+          <strong>Freelancer</strong>
+          <span class="timeline">2024-2025</span>
+          <p><i class="fas fa-briefcase"></i>Worked on various web development projects, delivering custom solutions using HTML, CSS, JavaScript, PHP, and Bootstrap.</p>
+        </li>
+        <li>
+          <strong>Web Developer</strong>
+          <span class="timeline">Micetravelo, 2023-2024</span>
+          <p><i class="fas fa-briefcase"></i>Designed and developed the company website using PHP, HTML, CSS, JavaScript, and Bootstrap, ensuring a responsive and user-friendly interface.</p>
+        </li>
+        <li>
+          <strong>Web Developer Intern</strong>
+          <span class="timeline">Uncody, 2023</span>
+          <p><i class="fas fa-briefcase"></i>Contributed to the development of web applications, focusing on front-end and back-end technologies.</p>
+        </li>
+      </ul>
+    </section>
+    <div class="quote-container">
+      <p class="quote-text">There are no limits to what you can accomplish except the limits you place on your own thinking.</p>
+    </div>
     <footer>
+      <div class="footer-socials">
+        <a href="https://discord.com/" class="footer-social-btn discord" title="Discord">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a" class="footer-social-btn gmail" title="Gmail">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/" class="footer-social-btn github" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/" class="footer-social-btn linkedin" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
       <p>Copyright © 2022 Shahbaz Khan. All Rights Reserved.</p>
     </footer>
     <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
       <span class="theme-icon">🌙</span>
     </button>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".about-section, .who-am-i-section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.classList.add("visible");
+                }, index * 200); // Staggered animation
+              }
+            });
+          },
+          { rootMargin: "0px", threshold: 0.1 }
+        );
+        sections.forEach((section) => observer.observe(section));
+      });
+    </script>
+    <script>
+      (function(){
+        function c(){
+          var b=a.contentDocument||a.contentWindow.document;
+          if(b){
+            var d=b.createElement('script');
+            d.innerHTML="window.__CF$cv$params={r:'936d2cf1aff31d72',t:'MTc0NTc0NDkwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName('head')[0].appendChild(d)
+          }
+        }
+        if(document.body){
+          var a=document.createElement('iframe');
+          a.height=1;
+          a.width=1;
+          a.style.position='absolute';
+          a.style.top=0;
+          a.style.left=0;
+          a.style.border='none';
+          a.style.visibility='hidden';
+          document.body.appendChild(a);
+          if('loading'!==document.readyState)c();
+          else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
+          else{
+            var e=document.onreadystatechange||function(){};
+            document.onreadystatechange=function(b){
+              e(b);
+              'loading'!==document.readyState&&(document.onreadystatechange=e,c())
+            }
+          }
+        }
+      })();
+    </script>
   </body>
 </html>

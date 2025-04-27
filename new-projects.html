@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Shahbaz Khan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Scheherazade+New:wght@700&family=Noto+Sans+Gurmukhi:wght@700&family=Poppins:wght@700&family=Playfair+Display:wght@700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 1rem;
+    }
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    [data-theme="dark"] .project-overlay {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .archive-btn {
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .archive-btn:hover {
+      background-color: #4b5563;
+      transform: scale(1.05);
+    }
+    [data-theme="dark"] .archive-btn {
+      background-color: #6b7280;
+    }
+    [data-theme="dark"] .archive-btn:hover {
+      background-color: #9ca3af;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <div class="main-content">
+    <nav id="sidebar-nav">
+      <ul class="sidebar-links">
+        <li><a href="index.html#profile" class="sidebar-link" data-section="profile"><i class="fas fa-home sidebar-icon"></i></a></li>
+        <li><a href="index.html#about" class="sidebar-link" data-section="about"><i class="fas fa-user sidebar-icon"></i></a></li>
+        <li><a href="experience.html" class="sidebar-link" data-section="experience"><i class="fas fa-briefcase sidebar-icon"></i></a></li>
+        <li><a href="new-projects.html" class="sidebar-link" data-section="projects"><i class="fas fa-code sidebar-icon"></i></a></li>
+        <li><a href="index.html#contact" class="sidebar-link" data-section="contact"><i class="fas fa-envelope sidebar-icon"></i></a></li>
+      </ul>
+    </nav>
+    <div class="hamburger-btn" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="top-menu">
+      <ul class="menu-links">
+        <li><a href="index.html#profile" onclick="toggleMenu()">Home</a></li>
+        <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="experience.html" onclick="toggleMenu()">Experience</a></li>
+        <li><a href="new-projects.html" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+    <section id="projects" class="py-16 px-4">
+      <div class="title-container text-center mb-12">
+        <h1 class="title text-4xl font-bold">My Projects</h1>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <!-- Project 1 -->
+        <a href="project1.html" class="project-card rounded-lg shadow-lg overflow-hidden">
+          <img src="./assets/portfolio.png" alt="Portfolio Website" class="w-full h-64 object-cover">
+          <div class="project-overlay">
+            <h3 class="text-xl font-semibold">Portfolio Website</h3>
+            <p class="text-sm mt-2">HTML, CSS, JavaScript, Tailwind CSS</p>
+          </div>
+        </a>
+        <!-- Project 2 -->
+        <a href="project2.html" class="project-card rounded-lg shadow-lg overflow-hidden">
+          <img src="./assets/EVENTO.png" alt="E-commerce Platform" class="w-full h-64 object-cover">
+          <div class="project-overlay">
+            <h3 class="text-xl font-semibold">Event Management Web Application</h3>
+            <p class="text-sm mt-2">HTML, CSS, JavaScript, Tailwind CSS, Node.js, MongoDB</p>
+          </div>
+        </a>
+        <!-- Project 3 -->
+        <a href="project3.html" class="project-card rounded-lg shadow-lg overflow-hidden">
+          <img src="./assets/spo2.jpg" alt="IoT Smart Home" class="w-full h-64 object-cover">
+          <div class="project-overlay">
+            <h3 class="text-xl font-semibold">Oxygen Level and Heart Rate Measurement System</h3>
+            <p class="text-sm mt-2">Arduino Nano, MAX30100 Module ,General Purpose PCB</p>
+          </div>
+        </a>
+      </div>
+      <div class="text-center mt-12">
+        <a href="archive.html" class="archive-btn inline-block bg-gray-800 dark:bg-gray-600 text-white py-3 px-6 rounded-lg text-lg font-semibold">
+          View Archive
+        </a>
+      </div>
+    </section>
+  </div>
+  <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
+    <span class="theme-icon">🌙</span>
+  </button>
+  <script src="script.js"></script>
+</body>
+</html>

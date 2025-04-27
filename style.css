@@ -1,5 +1,5 @@
 /* GENERAL */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@700&display=swap");
 
 :root {
   --background: #ffffff;
@@ -30,19 +30,206 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Hind", sans-serif;
   background: var(--background);
   color: var(--text);
   transition: background 0.3s ease, color 0.3s ease;
   margin-left: 70px;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
 }
+a {
+  text-decoration: none;
+}
 
 p {
+  font-size: 1.9rem;
   color: var(--text);
+}
+
+/* LOADER */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  transition: opacity 0.5s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.loader-name {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.word {
+  position: absolute;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.7),
+    0 0 15px rgba(255, 255, 255, 0.5);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+[data-theme="dark"] .word {
+  text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.word.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.word.hindi {
+  font-family: "Hind", sans-serif;
+}
+
+.word.urdu {
+  font-family: "Noto Nastaliq Urdu", sans-serif;
+  direction: rtl;
+}
+
+.word.arabic {
+  font-family: "Scheherazade New", sans-serif;
+  direction: rtl;
+}
+
+.word.punjabi {
+  font-family: "Noto Sans Gurmukhi", sans-serif;
+}
+
+.word.turkish {
+  font-family: "Poppins", sans-serif;
+}
+
+.word.russian {
+  font-family: "Playfair Display", sans-serif;
+}
+
+.word.english {
+  font-family: "Oswald", sans-serif;
+}
+
+.letter {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.letter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* LOADING BAR */
+.loading-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loading-bar {
+  width: 300px;
+  height: 15px;
+  background: var(--background-alt);
+  border-radius: 7.5px;
+  overflow: hidden;
+}
+
+.loading-progress {
+  width: 0;
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.5s ease;
+}
+
+.loading-percentage {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  font-family: "Hind", sans-serif;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .loading-bar {
+  background: var(--border);
+}
+
+[data-theme="dark"] .loading-progress {
+  background: var(--text-light);
+}
+
+[data-theme="dark"] .loading-percentage {
+  color: var(--text-light);
+}
+
+/* GLOW ANIMATION */
+@keyframes glowPulse {
+  0% { text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.7),
+    0 0 15px rgba(255, 255, 255, 0.5); }
+  50% { text-shadow: 
+    0 0 10px rgba(255, 255, 255, 1),
+    0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 30px rgba(255, 255, 255, 0.7); }
+  100% { text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.7),
+    0 0 15px rgba(255, 255, 255, 0.5); }
+}
+
+[data-theme="dark"] .word {
+  animation: glowPulseDark 2s ease-in-out infinite;
+}
+
+@keyframes glowPulseDark {
+  0% { text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(0, 0, 0, 0.5); }
+  50% { text-shadow: 
+    0 0 10px rgba(0, 0, 0, 1),
+    0 0 20px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(0, 0, 0, 0.7); }
+  100% { text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(0, 0, 0, 0.5); }
 }
 
 /* TRANSITION */
@@ -66,32 +253,41 @@ a,
   padding: 1rem 0;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] #sidebar-nav {
+  box-shadow: 2px 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .sidebar-links {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   flex-grow: 1;
   justify-content: center;
 }
 
 .sidebar-link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   color: var(--text-dark);
-  opacity: 1;
+  background: transparent;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .sidebar-icon {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--text-dark);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 [data-theme="dark"] .sidebar-link {
@@ -102,26 +298,78 @@ a,
   color: var(--text-light);
 }
 
+/* Hover Effects */
 .sidebar-link:hover {
   background: rgba(0, 0, 0, 0.1);
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(10deg);
+  animation: pulseHover 0.6s ease-in-out infinite;
 }
 
 [data-theme="dark"] .sidebar-link:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.sidebar-link:hover .sidebar-icon {
+  color: var(--primary);
+}
+
+/* Active State */
 .sidebar-link.active {
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--primary);
   transform: scale(1.2);
-  animation: pulse 0.5s ease-in-out forwards;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  animation: pop 0.2s ease-out;
 }
 
 [data-theme="dark"] .sidebar-link.active {
-  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-@keyframes pulse {
+.sidebar-link.active .sidebar-icon {
+  color: var(--text-light);
+}
+
+/* Click Animation */
+.sidebar-link.clicked {
+  animation: pop 0.2s ease-out;
+}
+
+/* Tooltip */
+.sidebar-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 60px;
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1001;
+}
+
+.sidebar-link:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Animations */
+@keyframes pulseHover {
+  0% { box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
+  50% { box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); }
+  100% { box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
+}
+
+[data-theme="dark"] @keyframes pulseHover {
+  0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+  50% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); }
+  100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+}
+
+@keyframes pop {
   0% { transform: scale(1); }
   50% { transform: scale(1.3); }
   100% { transform: scale(1.2); }
@@ -168,14 +416,13 @@ a,
 .hamburger-btn:hover {
   transform: scale(1.1);
 }
-.about-content{
-  font-size: 2rem;
 
-    margin-top: 40px;
-    margin-bottom: 10px;
-
-
+.about-content {
+  font-size: 3rem;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
+
 /* TOP MENU */
 #top-menu {
   position: fixed;
@@ -197,6 +444,7 @@ a,
 }
 
 .menu-links {
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -234,7 +482,7 @@ a,
   width: 100%;
 }
 
-/* THEME TOGGLE BUTTON (FIXED) */
+/* THEME TOGGLE BUTTON */
 #theme-toggle {
   position: fixed;
   bottom: 1rem;
@@ -391,7 +639,7 @@ section, #about-detail, #projects-detail {
 
 /* Updated Underline Animation for Section Titles */
 .title {
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: center;
   color: var(--text-dark);
   position: relative;
@@ -410,7 +658,7 @@ section, #about-detail, #projects-detail {
 }
 
 #profile.visible .title::after {
-  width: 0; /* Remove underline for Home section */
+  width: 0;
 }
 
 #about.visible .title::after {
@@ -429,13 +677,13 @@ section, #about-detail, #projects-detail {
 }
 
 #contact.visible .title {
-  font-size: 3.5rem; /* Increase font size for Contact heading */
+  font-size: 3.5rem;
 }
 
 #contact.visible .title::after {
-  width: 50%; /* Maintain shorter underline */
+  width: 100%;
   left: 50%;
-  transform: translateX(-50%); /* Center the underline */
+  transform: translateX(-50%);
 }
 
 /* Updated Image Size Increase Animation for About Section */
@@ -461,7 +709,7 @@ section, #about-detail, #projects-detail {
   100% { transform: scale(1); }
 }
 
-/* IMAGE ZOOM ANIMATION (REUSED) */
+/* IMAGE ZOOM ANIMATION */
 .project-img,
 .about-pic,
 .section__pic-container img {
@@ -498,6 +746,7 @@ section, #about-detail, #projects-detail {
 /* PROFILE SECTION */
 #profile {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 5rem;
   padding: 4rem 10rem;
@@ -505,8 +754,9 @@ section, #about-detail, #projects-detail {
 }
 
 #profile .section__text {
-  margin-bottom: 2rem; /* Add padding between button and icons */
+  margin-bottom: 2rem;
 }
+
 
 .section__pic-container {
   display: flex;
@@ -530,6 +780,7 @@ section, #about-detail, #projects-detail {
 
 .section__text p {
   font-weight: 600;
+  font-size: 2rem;
 }
 
 .section__text__p1 {
@@ -542,7 +793,7 @@ section, #about-detail, #projects-detail {
 }
 
 #profile .title {
-  font-size: 4rem; /* Increase font size for "Shahbaz Khan" */
+  font-size: 4rem;
 }
 
 /* BUTTONS */
@@ -587,6 +838,8 @@ section, #about-detail, #projects-detail {
 
 .btn-color-2 {
   background: none;
+  margin-bottom: 40px;
+  border-bottom-width: 6px;
 }
 
 .btn-color-2:hover {
@@ -730,6 +983,7 @@ article .icon {
 }
 
 .contact-info-upper-container {
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   border-radius: 2rem;
@@ -793,7 +1047,7 @@ article .icon {
   background: var(--background);
   color: var(--text-dark);
   font-size: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Hind", sans-serif;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 

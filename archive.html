@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Archive - Shahbaz Khan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Scheherazade+New:wght@700&family=Noto+Sans+Gurmukhi:wght@700&family=Poppins:wght@700&family=Playfair+Display:wght@700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .table-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    #projectTable {
+      width: 100%;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    [data-theme="dark"] #projectTable {
+      background-color: #1f2937;
+    }
+    #projectTable th,
+    #projectTable td {
+      padding: 1rem;
+      text-align: left;
+    }
+    #projectTable th {
+      background-color: #f3f4f6;
+      font-weight: bold;
+    }
+    [data-theme="dark"] #projectTable th {
+      background-color: #374151;
+    }
+    .github-link {
+      color: #1f2937;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    .github-link:hover {
+      color: #3b82f6;
+    }
+    [data-theme="dark"] .github-link {
+      color: #60a5fa;
+    }
+    [data-theme="dark"] .github-link:hover {
+      color: #93c5fd;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <div class="main-content">
+    <nav id="sidebar-nav">
+      <ul class="sidebar-links">
+        <li><a href="index.html#profile" class="sidebar-link" data-section="profile"><i class="fas fa-home sidebar-icon"></i></a></li>
+        <li><a href="index.html#about" class="sidebar-link" data-section="about"><i class="fas fa-user sidebar-icon"></i></a></li>
+        <li><a href="experience.html" class="sidebar-link" data-section="experience"><i class="fas fa-briefcase sidebar-icon"></i></a></li>
+        <li><a href="new-projects.html" class="sidebar-link" data-section="projects"><i class="fas fa-code sidebar-icon"></i></a></li>
+        <li><a href="index.html#contact" class="sidebar-link" data-section="contact"><i class="fas fa-envelope sidebar-icon"></i></a></li>
+      </ul>
+    </nav>
+    <div class="hamburger-btn" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="top-menu">
+      <ul class="menu-links">
+        <li><a href="index.html#profile" onclick="toggleMenu()">Home</a></li>
+        <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="experience.html" onclick="toggleMenu()">Experience</a></li>
+        <li><a href="new-projects.html" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+    <section class="table-container py-16">
+      <div class="title-container text-center mb-12">
+        <h1 class="title text-4xl font-bold">Project Archive</h1>
+      </div>
+      <table id="projectTable" class="min-w-full">
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Year</th>
+            <th>Technologies</th>
+            <th>GitHub Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Portfolio Website</td>
+            <td>2023</td>
+            <td>HTML, CSS, JavaScript, Tailwind CSS</td>
+            <td><a href="https://github.com/shahbazkhan/portfolio" class="github-link">View on GitHub</a></td>
+          </tr>
+          <tr>
+            <td>Event Management Web Application</td>
+            <td>2023</td>
+            <td>HTML, CSS, JavaScript, Tailwind CSS, Node.js, MongoDB</td>
+            <td><a href="https://github.com/shahbazkhan/ecommerce" class="github-link">View on GitHub</a></td>
+          </tr>
+          <tr>
+            <td>Oxygen Level and Heart Rate Measurement System</td>
+            <td>2023</td>
+            <td>Arduino Nano, MAX30100 Module ,General Purpose PC</td>
+            <td><a href="https://github.com/shahbazkhan/iot-smarthome" class="github-link">View on GitHub</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
+    <span class="theme-icon">🌙</span>
+  </button>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#projectTable').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true,
+        info: true,
+        lengthChange: false,
+        pageLength: 10,
+      });
+    });
+  </script>
+</body>
+</html>

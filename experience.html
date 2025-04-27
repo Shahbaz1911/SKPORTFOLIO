@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      /* Experience Card Styling */
+      .experience-card {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease;
+        border-radius: 1rem;
+        padding: 2rem;
+        background: var(--background-alt);
+        border: var(--border) 0.1rem solid;
+        margin-bottom: 2rem;
+      }
+      .experience-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .experience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+      /* Skill List Styling */
+      .skill-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        justify-items: center;
+      }
+      .skill-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: var(--background);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: var(--border) 0.1rem solid;
+        width: 100%;
+        max-width: 250px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .skill-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      /* Technology Icons with Specific Colors */
+      .skill-icon {
+        font-size: 2rem;
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+      .skill-item:hover .skill-icon {
+        transform: scale(1.2) rotate(10deg);
+        filter: brightness(1.2);
+      }
+      /* Icon Colors for Each Technology */
+      .skill-icon.html { color: #e34c26; } /* HTML: Orange */
+      .skill-icon.css { color: #264de4; } /* CSS: Blue */
+      .skill-icon.bootstrap { color: #563d7c; } /* Bootstrap: Purple */
+      .skill-icon.javascript { color: #f0db4f; } /* JavaScript: Yellow */
+      .skill-icon.typescript { color: #007acc; } /* TypeScript: Blue */
+      .skill-icon.tailwind { color: #38bdf8; } /* Tailwind: Cyan */
+      .skill-icon.nodejs { color: #68a063; } /* Node.js: Green */
+      .skill-icon.mongoose { color: #800; } /* Mongoose: Dark Red */
+      .skill-icon.express { color: #000; } /* Express: Black */
+      .skill-icon.mongodb { color: #4db33d; } /* MongoDB: Green */
+      .skill-icon.github { color: #171515; } /* GitHub: Dark Gray */
+      .skill-icon.git { color: #f05033; } /* Git: Orange-Red */
+      .skill-icon.packet-tracer { color: #0078d4; } /* Packet Tracer: Blue */
+      .skill-icon.windows { color: #00a1f1; } /* Windows: Blue */
+      .skill-icon.linux { color: #fcc624; } /* Linux: Yellow */
+      .skill-icon.networks { color: #0078d4; } /* Computer Networks: Blue */
+      /* Adjust icon colors for dark mode */
+      [data-theme="dark"] .skill-icon {
+        filter: brightness(0.9);
+      }
+      [data-theme="dark"] .skill-item:hover .skill-icon {
+        filter: brightness(1.3);
+      }
+      /* Skill Text */
+      .skill-text h3 {
+        font-size: 1.2rem;
+        color: var(--text-dark);
+        margin-bottom: 0.2rem;
+      }
+      .skill-text p {
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+      [data-theme="dark"] .skill-text h3 {
+        color: var(--text-light);
+      }
+      [data-theme="dark"] .skill-text p {
+        color: var(--text);
+      }
+      /* Sub-title Styling */
+      .experience-sub-title {
+        font-size: 2rem;
+        color: var(--text-dark);
+        text-align: center;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+      .experience-sub-title::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 2px;
+        background: var(--primary);
+      }
+      [data-theme="dark"] .experience-sub-title {
+        color: var(--text-light);
+      }
+      /* Animation for Icons */
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      .skill-item:hover .skill-icon {
+        animation: bounce 0.4s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="sidebar-nav">
+      <ul class="sidebar-links">
+        <li>
+          <a href="index.html#profile" class="sidebar-link" data-section="profile">
+            <i class="fas fa-home sidebar-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="about.html" class="sidebar-link" data-section="about">
+            <i class="fas fa-user sidebar-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="experience.html" class="sidebar-link active" data-section="experience">
+            <i class="fas fa-briefcase sidebar-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="new-projects.html" class="sidebar-link" data-section="projects">
+            <i class="fas fa-code sidebar-icon"></i>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#contact" class="sidebar-link" data-section="contact">
+            <i class="fas fa-envelope sidebar-icon"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="hamburger-btn" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="top-menu">
+      <ul class="menu-links">
+        <li><a href="index.html#profile" onclick="toggleMenu()">Home</a></li>
+        <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+        <li><a href="experience.html" onclick="toggleMenu()">Experience</a></li>
+        <li><a href="new-projects.html" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+    <section id="experience-detail">
+      <h1 class="title">My Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container experience-card">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <i class="fab fa-html5 skill-icon html"></i>
+                <div class="skill-text">
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-css3-alt skill-icon css"></i>
+                <div class="skill-text">
+                  <h3>CSS</h3>
+                  <p>Experienced</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-bootstrap skill-icon bootstrap"></i>
+                <div class="skill-text">
+                  <h3>Bootstrap</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-js skill-icon javascript"></i>
+                <div class="skill-text">
+                  <h3>JavaScript</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-js skill-icon typescript"></i>
+                <div class="skill-text">
+                  <h3>TypeScript</h3>
+                  <p>Basic</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-css3 skill-icon tailwind"></i>
+                <div class="skill-text">
+                  <h3>Tailwind</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="details-container color-container experience-card">
+            <h2 class="experience-sub-title">Backend Development</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <i class="fab fa-node-js skill-icon nodejs"></i>
+                <div class="skill-text">
+                  <h3>Node JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-database skill-icon mongoose"></i>
+                <div class="skill-text">
+                  <h3>Mongoose</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-server skill-icon express"></i>
+                <div class="skill-text">
+                  <h3>Express JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-database skill-icon mongodb"></i>
+                <div class="skill-text">
+                  <h3>MongoDB</h3>
+                  <p>Basic</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="details-container color-container experience-card">
+            <h2 class="experience-sub-title">Miscellaneous</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <i class="fab fa-github skill-icon github"></i>
+                <div class="skill-text">
+                  <h3>Github</h3>
+                  <p>Experienced</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-code-branch skill-icon git"></i>
+                <div class="skill-text">
+                  <h3>Git</h3>
+                  <p>Experienced</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-network-wired skill-icon packet-tracer"></i>
+                <div class="skill-text">
+                  <h3>Packet Tracer</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-windows skill-icon windows"></i>
+                <div class="skill-text">
+                  <h3>Windows</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-linux skill-icon linux"></i>
+                <div class="skill-text">
+                  <h3>Linux</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-network-wired skill-icon networks"></i>
+                <div class="skill-text">
+                  <h3>Computer Networks</h3>
+                  <p>Intermediate</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>Copyright © 2022 Shahbaz Khan. All Rights Reserved.</p>
+    </footer>
+    <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
+      <span class="theme-icon">🌙</span>
+    </button>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const experienceCards = document.querySelectorAll(".experience-card");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.classList.add("visible");
+                }, index * 200); // Staggered animation
+              }
+            });
+          },
+          { rootMargin: "0px", threshold: 0.1 }
+        );
+        experienceCards.forEach((card) => observer.observe(card));
+      });
+    </script>
+  </body>
+</html>

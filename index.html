@@ -8,470 +8,489 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Scheherazade+New:wght@700&family=Noto+Sans+Gurmukhi:wght@700&family=Poppins:wght@700&family=Playfair+Display:wght@700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+      /* Consistent Section Styling */
+      section {
+        padding: 4rem 10rem;
+        margin: 2rem 0;
+        opacity: 0;
+        transition: opacity 0.8s ease-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: fit-content;
+      }
+      section.visible {
+        opacity: 1;
+      }
+      .section-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--background-alt);
+        border: var(--border) 0.1rem solid;
+        border-radius: 1rem;
+        padding: 2rem;
+        width: 100%;
+        max-width: 1200px;
+        transition: all 0.3s ease;
+      }
+      /* Unique Hover Effects for Each Section */
+      #profile .section-container:hover {
+        transform: scale(1.02) rotate(1deg);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+      #about .section-container:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+        box-shadow: 0 0 15px var(--primary);
+      }
+      #experience .section-container:hover {
+        animation: pulse 0.5s ease-in-out;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+      #projects .section-container:hover {
+        transform: scale(1.03);
+        background: rgba(0, 0, 0, 0.05);
+      }
+      #contact .section-container:hover {
+        transform: rotateX(5deg) rotateY(5deg);
+        animation: bounce 0.4s ease-in-out;
+      }
+      /* Text Reveal Hover Effect for Titles */
+      .title {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        transition: color 0.3s ease;
+      }
+      .title::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: var(--primary);
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 0.4s ease;
+      }
+      .title:hover::before {
+        clip-path: inset(0 0 0 0);
+      }
+      .title:hover {
+        color: var(--text-dark);
+      }
+      [data-theme="dark"] .title::before {
+        color: var(--text-light);
+      }
+      [data-theme="dark"] .title:hover {
+        color: var(--primary);
+      }
+      /* Animations */
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      /* Button and Icon Hover Effects */
+      .btn:hover {
+        transform: scale(1.1);
+        background: var(--primary);
+        color: var(--text-light);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      .social-icon:hover {
+        transform: rotate(360deg);
+        transition: transform 0.5s ease;
+      }
+      .footer-social-btn:hover {
+        transform: scale(1.2);
+        background: var(--primary);
+        border-color: var(--text-light);
+      }
+      .footer-social-btn:hover i {
+        color: var(--text-light);
+        transform: rotate(10deg);
+      }
+      /* Footer Social Icons Styling */
+      .footer-socials {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .footer-social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--background-alt);
+        border: var(--border) 0.1rem solid;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .footer-social-btn i {
+        font-size: 1.5rem;
+        color: var(--text-dark);
+      }
+      [data-theme="dark"] .footer-social-btn i {
+        color: var(--text-light);
+      }
+      /* Specific hover icon changes */
+      .footer-social-btn.discord:hover i::before {
+        content: "\f39e";
+      }
+      .footer-social-btn.gmail:hover i::before {
+        content: "\f0e0";
+      }
+      .footer-social-btn.github:hover i {
+        transform: rotate(360deg);
+      }
+      .footer-social-btn.linkedin:hover i::before {
+        content: "\f08c";
+      }
+      /* Profile Section Specifics */
+      #profile .section-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 5rem;
+      }
+      #profile .section__pic-container {
+        height: 400px;
+        width: 400px;
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+      #profile .section__text {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      /* Contact Form Styling */
+      .contact-form-container {
+        width: 100%;
+        max-width: 600px;
+        background: var(--background);
+        border: var(--border) 0.1rem solid;
+        border-radius: 1rem;
+        padding: 2rem;
+      }
+      /* Staggered Animations for Section Content */
+      section.visible .section__text,
+      section.visible .section__pic-container,
+      section.visible .about-details-container,
+      section.visible .experience-details-container,
+      section.visible .contact-container {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      section.visible .section__text {
+        transition-delay: 0.2s;
+      }
+      section.visible .section__pic-container,
+      section.visible .about-details-container {
+        transition-delay: 0.4s;
+      }
+      section.visible .experience-details-container,
+      section.visible .contact-container {
+        transition-delay: 0.6s;
+      }
+    </style>
   </head>
   <body>
-    <nav id="sidebar-nav">
-      <ul class="sidebar-links">
-        <li>
-          <a href="#profile" class="sidebar-link" data-section="profile">
-            <i class="fas fa-home sidebar-icon"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#about" class="sidebar-link" data-section="about">
-            <i class="fas fa-user sidebar-icon"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#experience" class="sidebar-link" data-section="experience">
-            <i class="fas fa-briefcase sidebar-icon"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#projects" class="sidebar-link" data-section="projects">
-            <i class="fas fa-code sidebar-icon"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#contact" class="sidebar-link" data-section="contact">
-            <i class="fas fa-envelope sidebar-icon"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div class="hamburger-btn" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="loader">
+      <div class="loader-content">
+        <div class="loader-name">
+          <div class="word hindi" data-lang="hindi">
+            <span class="letter">श</span>
+            <span class="letter">ह</span>
+            <span class="letter">बा</span>
+            <span class="letter">ज़</span>
+            <span class="letter"> </span>
+            <span class="letter">खा</span>
+            <span class="letter">न</span>
+          </div>
+          <div class="word urdu" data-lang="urdu">شہباز خان</div>
+          <div class="word arabic" data-lang="arabic">شهباز خان</div>
+          <div class="word punjabi" data-lang="punjabi">ਸ਼ਹਿਬਾਜ਼ ਖ਼ਾਨ</div>
+          <div class="word turkish" data-lang="turkish">Şahbaz Han</div>
+          <div class="word russian" data-lang="russian">Шахбаз Хан</div>
+          <div class="word english" data-lang="english">
+            <span class="letter">S</span>
+            <span class="letter">H</span>
+            <span class="letter">A</span>
+            <span class="letter">H</span>
+            <span class="letter">B</span>
+            <span class="letter">A</span>
+            <span class="letter">Z</span>
+            <span class="letter"> </span>
+            <span class="letter"><br></span>
+            <span class="letter">K</span>
+            <span class="letter">H</span>
+            <span class="letter">A</span>
+            <span class="letter">N</span>
+          </div>
+        </div>
+        <div class="loading-bar-container">
+          <div class="loading-bar">
+            <div class="loading-progress"></div>
+          </div>
+          <span class="loading-percentage">0%</span>
+        </div>
+      </div>
     </div>
-    <nav id="top-menu">
-      <ul class="menu-links">
-        <li><a href="#profile" onclick="toggleMenu()">Home</a></li>
-        <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-      </ul>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/cropped_image.png" alt="John Doe profile picture" />
+    <div class="main-content" style="display: none;">
+      <nav id="sidebar-nav">
+        <ul class="sidebar-links">
+          <li>
+            <a href="#profile" class="sidebar-link" data-section="profile" data-tooltip="Home">
+              <i class="fas fa-home sidebar-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="sidebar-link" data-section="about" data-tooltip="About">
+              <i class="fas fa-user sidebar-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="experience.html" class="sidebar-link" data-section="experience" data-tooltip="Experience">
+              <i class="fas fa-briefcase sidebar-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="new-projects.html" class="sidebar-link" data-section="projects" data-tooltip="Projects">
+              <i class="fas fa-code sidebar-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="sidebar-link" data-section="contact" data-tooltip="Contact">
+              <i class="fas fa-envelope sidebar-icon"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="hamburger-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">SHAHBAZ KHAN</h1>
-        <p class="section__text__p2">Electronic Engineer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/resume-example.pdf')"
-          >
-            Download CV
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon social-icon"
-            onclick="location.href='https://linkedin.com/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon social-icon"
-            onclick="location.href='https://github.com/'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title about-title">About Me</h1>
-      <div class="section-container">
-        <!-- <div class="section__pic-container about-image">
-          <img
-            src="./assets/IMG_0203.jpeg"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div> -->
-        <div class="about-details-container">
-          <div class="text-container">
-            <p class="about-content">
-              A brief introduction about me and my interest.
-              <!-- I am an Electronic Engineer passionate about technology and innovation. -->
-            </p>
+      <nav id="top-menu">
+        <ul class="menu-links">
+          <li><a href="#profile" onclick="toggleMenu()">Home</a></li>
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="experience.html" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="new-projects.html" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+      </nav>
+      <section id="profile">
+        <div class="section-container ">
+          <div class="section__pic-container">
+            <img src="./assets/cropped_image.png" alt="John Doe profile picture" />
           </div>
-          <div class="btn-container">
-            <button
-              class="btn btn-color-2"
-              onclick="location.href='about.html'"
-            >
-              Learn More
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Bootsrap</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>TypeScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Tailwind</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Backend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Node JS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Mongoose</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Express JS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>MongoDB</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Miscellaneous</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Github</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Packet Tracer</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Windows</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Linux</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Computer Networks</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/spo2.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">OXYGEN LEVEL AND HEART RATE MEASUREMENT SYSTEM</h2>
+          <div class="section__text">
+            <p class="section__text__p1">Hello, I'm</p>
+            <h1 class="title" data-text="SHAHBAZ KHAN">SHAHBAZ KHAN</h1>
+            <p class="section__text__p2">Electronic Engineer</p>
             <div class="btn-container">
               <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                class="btn btn-color-2"
+                onclick="window.open('./assets/Shahbaz-resume.pdf')"
               >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
+                Download CV
               </button>
             </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
+            <div id="socials-container">
               <img
-                src="./assets/EVENTO.png"
-                alt="Project 2"
-                class="project-img"
+                src="./assets/linkedin.png"
+                alt="My LinkedIn profile"
+                class="icon social-icon"
+                onclick="location.href='https://linkedin.com/'"
               />
-            </div>
-            <h2 class="experience-sub-title project-title">EVENT MANAGEMENT WEB APPLICATION</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
               <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
+                src="./assets/github.png"
+                alt="My Github profile"
+                class="icon social-icon"
                 onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='projects.html'"
-              >
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-container">
-        <div class="contact-info-upper-container">
-          <div class="contact-info-container">
-            <img
-              src="./assets/email.png"
-              alt="Email icon"
-              class="icon contact-icon email-icon"
-            />
-            <p><a href="mailto:example@email.com">example@email.com</a></p>
-          </div>
-          <div class="contact-info-container">
-            <img
-              src="./assets/linkedin.png"
-              alt="LinkedIn icon"
-              class="icon contact-icon social-icon"
-            />
-            <p><a href="https://www.linkedin.com">LinkedIn</a></p>
-          </div>
-        </div>
-        <div class="contact-form-container">
-          <form class="contact-form">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your Name"
-                required
               />
             </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Your Message"
-                rows="5"
-                required
-              ></textarea>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-color-1">Send Message</button>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-    </section>
-    <footer>
-      <p>Copyright © 2022 Shahbaz Khan. All Rights Reserved.</p>
-    </footer>
-    <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
-      <span class="theme-icon">🌙</span>
-    </button>
+      </section>
+      <section id="about">
+        <div class="section-container">
+          <h1 class="title" data-text="About Me">About Me</h1>
+          <div class="about-details-container">
+            <div class="about-containers">
+              <div class="details-container color-container">
+                <div class="article-container">
+                  <p>A brief introduction about me and my interests.</p>
+                </div>
+                <div class="btn-container">
+                  <button
+                    class="btn btn-color-2 project-btn"
+                    onclick="location.href='about.html'"
+                  >
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="experience">
+        <div class="section-container">
+          <h1 class="title" data-text="Experience">Experience</h1>
+          <div class="experience-details-container">
+            <div class="about-containers">
+              <div class="details-container color-container">
+                <div class="article-container">
+                  <p>This is some of my skills and expertise that I have gained over time.</p>
+                </div>
+                <div class="btn-container">
+                  <button
+                    class="btn btn-color-2 project-btn"
+                    onclick="location.href='experience.html'"
+                  >
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="projects">
+        <div class="section-container">
+          <h1 class="title" data-text="Projects">Projects</h1>
+          <div class="experience-details-container">
+            <div class="about-containers">
+              <div class="details-container color-container">
+                <div class="article-container">
+                  <p>This is some of my projects that I have done and currently working on.</p>
+                </div>
+                <div class="btn-container">
+                  <button
+                    class="btn btn-color-2 project-btn"
+                    onclick="location.href='new-projects.html'"
+                  >
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="section-container">
+          <h1 class="title" data-text="Contact Me">Contact Me</h1>
+          <div class="contact-container">
+            <div class="contact-info-upper-container">
+              <div class="contact-info-container">
+                <a href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a" class="footer-social-btn gmail" title="Gmail">
+                  <i class="fas fa-envelope"></i>
+                </a>
+                <p>shahbazkhan19111@gmail</p>
+              </div>
+              <div class="contact-info-container">
+                <a href="#" class="footer-social-btn phone" title="Discord">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+                <p>+91 8920537638</p>
+              </div>
+            </div>
+            <div class="contact-form-container">
+              <form class="contact-form">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Your Message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-color-1">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="footer-socials">
+          <a href="https://discord.com/" class="footer-social-btn discord" title="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a" class="footer-social-btn gmail" title="Gmail">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://github.com/" class="footer-social-btn github" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/" class="footer-social-btn linkedin" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <p>Copyright © 2022 Shahbaz Khan. All Rights Reserved.</p>
+      </footer>
+      <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="script.js"></script>
-  </body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.classList.add("visible");
+                }, index * 200); // Staggered animation
+              }
+            });
+          },
+          { rootMargin: "0px", threshold: 0.1 }
+        );
+        sections.forEach((section) => observer.observe(section));
+      });
+    </script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'936d2cf1aff31d72',t:'MTc0NTc0NDkwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
