@@ -132,7 +132,7 @@
     padding: 1rem;
   }
   .menu-links a {
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
     text-decoration: none;
     transition: all 0.3s ease;
   }
@@ -190,7 +190,7 @@
     margin: 0 auto;
   }
   #profile .title {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   .section__text__p1,
   .section__text__p2 {
@@ -211,11 +211,11 @@
   #socials-container {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 2rem;
+    /* margin-top: 1rem; */
   }
   #socials-container img {
-    height: 1.5rem;
+    height: 3rem;
   }
 
   /* About Section (index.html and about.html) */
@@ -507,9 +507,9 @@
   }
 
   /* General Section Titles */
-  .title {
+  /* .title {
     font-size: 2rem;
-  }
+  } */
   .title::after {
     width: 60px;
   }
