@@ -193,12 +193,11 @@ Contributions, issues, and feature requests are welcome!
 
 ## 📞 Contact
 
-- 🌐 **Website**: [your-portfolio-url.com](https://your-portfolio-url.com)
-- 📧 **Email**: your.email@example.com
+**Shahbaz Khan**
+- 🌐 **Portfolio**: [https://shahbaz1911.netlify.app/](https://shahbaz1911.netlify.app/)
+- 📧 **Email**: shahbazkhan19111@gmail.com
 - 💼 **LinkedIn**: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- 🐙 **GitHub**: [github.com/shahbaz1911](https://github.com/shahbaz1911)
-- 🐦 **Twitter**: [@yourusername](https://twitter.com/yourusername)
-
+- 🐙 **GitHub**: [github.com/yourusername](https://github.com/Shahbaz1911)
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
