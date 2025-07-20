@@ -143,6 +143,8 @@
         text-align: center;
         margin-bottom: 1.5rem;
         position: relative;
+        max-width: 90vw;
+        word-break: break-word;
       }
       .experience-sub-title::after {
         content: "";
@@ -150,7 +152,8 @@
         bottom: -0.5rem;
         left: 50%;
         transform: translateX(-50%);
-        width: 80px;
+        width: 2.5em;
+        max-width: 80px;
         height: 2px;
         background: var(--primary);
       }
@@ -169,6 +172,16 @@
       }
       .skill-item:hover .skill-icon {
         animation: bounce 0.4s ease-in-out;
+      }
+      /* Responsive heading underline and font size */
+      @media (max-width: 768px) {
+        .experience-sub-title {
+          font-size: 1.2rem;
+        }
+        .experience-sub-title::after {
+          width: 2em;
+          max-width: 40px;
+        }
       }
     </style>
   </head>
@@ -215,16 +228,6 @@
           >
             <i class="fas fa-envelope sidebar-icon"></i>
           </a>
-        </li>
-        <li>
-          <button
-            class="sidebar-link theme-toggle-sidebar"
-            id="theme-toggle-sidebar"
-            title="Toggle Theme"
-            onclick="toggleTheme()"
-          >
-            <i class="fas fa-moon sidebar-icon theme-icon-sidebar"></i>
-          </button>
         </li>
       </ul>
     </nav>
