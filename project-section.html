@@ -65,7 +65,7 @@
       }
     </style>
   </head>
-  <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <body data-theme="light">
     <div class="main-content">
       <nav id="sidebar-nav">
         <ul class="sidebar-links">
@@ -106,6 +106,16 @@
               ><i class="fas fa-envelope sidebar-icon"></i
             ></a>
           </li>
+          <li>
+            <button
+              class="sidebar-link theme-toggle-sidebar"
+              id="theme-toggle-sidebar"
+              title="Toggle Theme"
+              onclick="toggleTheme()"
+            >
+              <i class="fas fa-moon sidebar-icon theme-icon-sidebar"></i>
+            </button>
+          </li>
         </ul>
       </nav>
       <div class="hamburger-btn" onclick="toggleMenu()">
@@ -144,7 +154,7 @@
               class="w-full h-64 object-cover"
             />
             <div class="project-overlay">
-              <h3 class="text-3xl font-semibold">Portfolio </h3>
+              <h3 class="text-3xl font-semibold">Portfolio</h3>
               <p class="text-sm mt-2">HTML, CSS, JavaScript, Tailwind CSS</p>
             </div>
           </a>
@@ -160,9 +170,7 @@
               class="w-full h-64 object-cover"
             />
             <div class="project-overlay">
-              <h3 class="text-3xl font-semibold">
-                evntos
-              </h3>
+              <h3 class="text-3xl font-semibold">evntos</h3>
               <p class="text-sm mt-2">
                 HTML, CSS, JavaScript, Tailwind CSS, Node.js, MongoDB
               </p>
@@ -200,7 +208,7 @@
               class="w-full h-64 object-cover"
             />
             <div class="project-overlay">
-              <h3 class="text-3xl font-semibold">Salah sync </h3>
+              <h3 class="text-3xl font-semibold">Salah sync</h3>
               <p class="text-sm mt-2">react , nextjs tailwindcss</p>
             </div>
           </a>
@@ -216,10 +224,8 @@
               class="w-full h-64 object-cover"
             />
             <div class="project-overlay">
-              <h3 class="text-3xl font-semibold">
-                Khan Motors
-              </h3>
-              <p class="text-sm mt-2"> react , nextjs ,tailwindcss, gsap  </p>
+              <h3 class="text-3xl font-semibold">Khan Motors</h3>
+              <p class="text-sm mt-2">react , nextjs ,tailwindcss, gsap</p>
             </div>
           </a>
 
@@ -236,9 +242,7 @@
             />
             <div class="project-overlay">
               <h3 class="text-3xl font-semibold">mylookscare</h3>
-              <p class="text-sm mt-2">
-                React, Tailwind CSS
-              </p>
+              <p class="text-sm mt-2">React, Tailwind CSS</p>
             </div>
           </a>
           <!-- Project 7: FalconCart -->
@@ -260,7 +264,6 @@
                 React.js, Node.js, Express.js, MongoDB, Redux Toolkit, Stripe
                 API
               </p>
-           
             </div>
           </a>
 
@@ -296,10 +299,9 @@
               <!-- <p class="text-sm mt-2">Tech Stack / Short Description</p> -->
             </div>
           </a>
-      
 
-        <!-- Mice Travelo -->
-         <a
+          <!-- Mice Travelo -->
+          <a
             href="https://newmicetravelo.vercel.app/"
             class="project-card rounded-lg shadow-lg overflow-hidden"
           >
@@ -313,7 +315,7 @@
               <!-- <p class="text-sm mt-2">Tech Stack / Short Description</p> -->
             </div>
           </a>
-              <!--modern mylookscare -->
+          <!--modern mylookscare -->
 
           <a
             href="https://mylookscarewebapp.vercel.app/"
@@ -326,12 +328,10 @@
             />
             <div class="project-overlay">
               <h3 class="text-3xl font-semibold">Modernlookscare</h3>
-              <p class="text-sm mt-2">
-                React, Tailwind CSS
-              </p>
+              <p class="text-sm mt-2">React, Tailwind CSS</p>
             </div>
           </a>
-              <!-- event-management -->
+          <!-- event-management -->
 
           <a
             href="https://eventoworld.netlify.app/"
@@ -344,9 +344,7 @@
             />
             <div class="project-overlay">
               <h3 class="text-3xl font-semibold">evento</h3>
-              <p class="text-sm mt-2">
-                React, Tailwind CSS
-              </p>
+              <p class="text-sm mt-2">React, Tailwind CSS</p>
             </div>
           </a>
         </div>
@@ -361,14 +359,7 @@
         </div> -->
       </section>
     </div>
-    <button
-      class="theme-toggle btn"
-      id="theme-toggle"
-      title="Toggle Theme"
-      style="position: fixed; bottom: 1rem; right: 1rem"
-    >
-      <span class="theme-icon">🌙</span>
-    </button>
+
     <script src="script.js"></script>
   </body>
 </html>

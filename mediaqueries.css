@@ -505,6 +505,11 @@
     font-size: 1.2rem;
     padding: 0.4rem;
   }
+  
+  /* Hide sidebar theme toggle on mobile since sidebar is hidden */
+  .theme-toggle-sidebar {
+    display: none;
+  }
 
   /* General Section Titles */
   /* .title {

@@ -384,7 +384,7 @@ a,
   height: 50px;
   background: var(--primary);
   border-radius: 50%;
-  display: flex;
+  display: none; /* Hidden by default on desktop */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -507,6 +507,44 @@ a,
 .theme-toggle:hover {
   color: var(--primary);
   transform: scale(1.1);
+}
+
+/* SIDEBAR THEME TOGGLE BUTTON */
+.theme-toggle-sidebar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-sidebar:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+.theme-toggle-sidebar:hover .sidebar-icon {
+  color: var(--text-light);
+}
+
+.theme-icon-sidebar {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .theme-icon-sidebar {
+  color: var(--text-light);
+}
+
+[data-theme="dark"] .theme-toggle-sidebar:hover .theme-icon-sidebar {
+  color: var(--text-light);
 }
 
 /* SECTIONS */

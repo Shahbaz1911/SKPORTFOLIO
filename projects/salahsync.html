@@ -150,7 +150,7 @@
       }
     </style>
   </head>
-  <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <body data-theme="light">
     <div class="main-content">
       <nav id="sidebar-nav">
         <ul class="sidebar-links">
@@ -163,7 +163,10 @@
             ></a>
           </li>
           <li>
-            <a href="../index.html#about" class="sidebar-link" data-section="about"
+            <a
+              href="../index.html#about"
+              class="sidebar-link"
+              data-section="about"
               ><i class="fas fa-user sidebar-icon"></i
             ></a>
           </li>
@@ -198,13 +201,17 @@
       </div>
       <nav id="top-menu">
         <ul class="menu-links">
-          <li><a href="../index.html#profile" onclick="toggleMenu()">Home</a></li>
+          <li>
+            <a href="../index.html#profile" onclick="toggleMenu()">Home</a>
+          </li>
           <li><a href="../about.html" onclick="toggleMenu()">About</a></li>
           <li>
             <a href="../experience.html" onclick="toggleMenu()">Experience</a>
           </li>
           <li>
-            <a href="../project-section.html" onclick="toggleMenu()">Projects</a>
+            <a href="../project-section.html" onclick="toggleMenu()"
+              >Projects</a
+            >
           </li>
           <li>
             <a href="../index.html#contact" onclick="toggleMenu()">Contact</a>
@@ -230,8 +237,9 @@
           </div>
           <div class="project-main">
             <p class="project-description">
-             A comprehensive Islamic companion app  designed to help Muslims organize their daily prayers, learn Islamic teachings, and connect with their community.
-
+              A comprehensive Islamic companion app designed to help Muslims
+              organize their daily prayers, learn Islamic teachings, and connect
+              with their community.
             </p>
             <a
               href="https://salahsync.netlify.app/"
@@ -239,20 +247,13 @@
               target="_blank"
               rel="noopener"
             >
-              <i class="fas fa-external-link-alt"></i> Visit 
+              <i class="fas fa-external-link-alt"></i> Visit
             </a>
           </div>
         </div>
       </section>
     </div>
-    <button
-      class="theme-toggle btn"
-      id="theme-toggle"
-      title="Toggle Theme"
-      style="position: fixed; bottom: 1rem; right: 1rem"
-    >
-      <span class="theme-icon">🌙</span>
-    </button>
+
     <script src="../script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {

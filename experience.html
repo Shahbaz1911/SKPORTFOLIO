@@ -7,13 +7,17 @@
     <title>Experience</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       /* Experience Card Styling */
       .experience-card {
         opacity: 0;
         transform: translateY(50px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out,
+          box-shadow 0.3s ease;
         border-radius: 1rem;
         padding: 2rem;
         background: var(--background-alt);
@@ -61,22 +65,54 @@
         filter: brightness(1.2);
       }
       /* Icon Colors for Each Technology */
-      .skill-icon.html { color: #e34c26; } /* HTML: Orange */
-      .skill-icon.css { color: #264de4; } /* CSS: Blue */
-      .skill-icon.bootstrap { color: #563d7c; } /* Bootstrap: Purple */
-      .skill-icon.javascript { color: #f0db4f; } /* JavaScript: Yellow */
-      .skill-icon.typescript { color: #007acc; } /* TypeScript: Blue */
-      .skill-icon.tailwind { color: #38bdf8; } /* Tailwind: Cyan */
-      .skill-icon.nodejs { color: #68a063; } /* Node.js: Green */
-      .skill-icon.mongoose { color: #800; } /* Mongoose: Dark Red */
-      .skill-icon.express { color: #000; } /* Express: Black */
-      .skill-icon.mongodb { color: #4db33d; } /* MongoDB: Green */
-      .skill-icon.github { color: #171515; } /* GitHub: Dark Gray */
-      .skill-icon.git { color: #f05033; } /* Git: Orange-Red */
-      .skill-icon.packet-tracer { color: #0078d4; } /* Packet Tracer: Blue */
-      .skill-icon.windows { color: #00a1f1; } /* Windows: Blue */
-      .skill-icon.linux { color: #fcc624; } /* Linux: Yellow */
-      .skill-icon.networks { color: #0078d4; } /* Computer Networks: Blue */
+      .skill-icon.html {
+        color: #e34c26;
+      } /* HTML: Orange */
+      .skill-icon.css {
+        color: #264de4;
+      } /* CSS: Blue */
+      .skill-icon.bootstrap {
+        color: #563d7c;
+      } /* Bootstrap: Purple */
+      .skill-icon.javascript {
+        color: #f0db4f;
+      } /* JavaScript: Yellow */
+      .skill-icon.typescript {
+        color: #007acc;
+      } /* TypeScript: Blue */
+      .skill-icon.tailwind {
+        color: #38bdf8;
+      } /* Tailwind: Cyan */
+      .skill-icon.nodejs {
+        color: #68a063;
+      } /* Node.js: Green */
+      .skill-icon.mongoose {
+        color: #800;
+      } /* Mongoose: Dark Red */
+      .skill-icon.express {
+        color: #000;
+      } /* Express: Black */
+      .skill-icon.mongodb {
+        color: #4db33d;
+      } /* MongoDB: Green */
+      .skill-icon.github {
+        color: #171515;
+      } /* GitHub: Dark Gray */
+      .skill-icon.git {
+        color: #f05033;
+      } /* Git: Orange-Red */
+      .skill-icon.packet-tracer {
+        color: #0078d4;
+      } /* Packet Tracer: Blue */
+      .skill-icon.windows {
+        color: #00a1f1;
+      } /* Windows: Blue */
+      .skill-icon.linux {
+        color: #fcc624;
+      } /* Linux: Yellow */
+      .skill-icon.networks {
+        color: #0078d4;
+      } /* Computer Networks: Blue */
       /* Adjust icon colors for dark mode */
       [data-theme="dark"] .skill-icon {
         filter: brightness(0.9);
@@ -109,7 +145,7 @@
         position: relative;
       }
       .experience-sub-title::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -0.5rem;
         left: 50%;
@@ -123,19 +159,28 @@
       }
       /* Animation for Icons */
       @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-5px); }
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
       }
       .skill-item:hover .skill-icon {
         animation: bounce 0.4s ease-in-out;
       }
     </style>
   </head>
-  <body>
+  <body data-theme="light">
     <nav id="sidebar-nav">
       <ul class="sidebar-links">
         <li>
-          <a href="index.html#profile" class="sidebar-link" data-section="profile">
+          <a
+            href="index.html#profile"
+            class="sidebar-link"
+            data-section="profile"
+          >
             <i class="fas fa-home sidebar-icon"></i>
           </a>
         </li>
@@ -145,19 +190,41 @@
           </a>
         </li>
         <li>
-          <a href="experience.html" class="sidebar-link active" data-section="experience">
+          <a
+            href="experience.html"
+            class="sidebar-link active"
+            data-section="experience"
+          >
             <i class="fas fa-briefcase sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="new-projects.html" class="sidebar-link" data-section="projects">
+          <a
+            href="new-projects.html"
+            class="sidebar-link"
+            data-section="projects"
+          >
             <i class="fas fa-code sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="index.html#contact" class="sidebar-link" data-section="contact">
+          <a
+            href="index.html#contact"
+            class="sidebar-link"
+            data-section="contact"
+          >
             <i class="fas fa-envelope sidebar-icon"></i>
           </a>
+        </li>
+        <li>
+          <button
+            class="sidebar-link theme-toggle-sidebar"
+            id="theme-toggle-sidebar"
+            title="Toggle Theme"
+            onclick="toggleTheme()"
+          >
+            <i class="fas fa-moon sidebar-icon theme-icon-sidebar"></i>
+          </button>
         </li>
       </ul>
     </nav>
@@ -312,9 +379,7 @@
     <footer>
       <p>Copyright © 2022 Shahbaz Khan. All Rights Reserved.</p>
     </footer>
-    <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
-      <span class="theme-icon">🌙</span>
-    </button>
+
     <script src="script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {

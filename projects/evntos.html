@@ -150,7 +150,7 @@
       }
     </style>
   </head>
-  <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <body data-theme="light">
     <div class="main-content">
       <nav id="sidebar-nav">
         <ul class="sidebar-links">
@@ -163,7 +163,10 @@
             ></a>
           </li>
           <li>
-            <a href="../index.html#about" class="sidebar-link" data-section="about"
+            <a
+              href="../index.html#about"
+              class="sidebar-link"
+              data-section="about"
               ><i class="fas fa-user sidebar-icon"></i
             ></a>
           </li>
@@ -198,13 +201,17 @@
       </div>
       <nav id="top-menu">
         <ul class="menu-links">
-          <li><a href="../index.html#profile" onclick="toggleMenu()">Home</a></li>
+          <li>
+            <a href="../index.html#profile" onclick="toggleMenu()">Home</a>
+          </li>
           <li><a href="../about.html" onclick="toggleMenu()">About</a></li>
           <li>
             <a href="../experience.html" onclick="toggleMenu()">Experience</a>
           </li>
           <li>
-            <a href="../project-section.html" onclick="toggleMenu()">Projects</a>
+            <a href="../project-section.html" onclick="toggleMenu()"
+              >Projects</a
+            >
           </li>
           <li>
             <a href="../index.html#contact" onclick="toggleMenu()">Contact</a>
@@ -230,18 +237,19 @@
           </div>
           <div class="project-main">
             <p class="project-description">
-                Create stunning event pages in one click - The modern event management platform
-                <li>
-⚡ One-Click Event Creation - Generate beautiful event pages instantly
-🎨 Visual Event Editor - Drag-and-drop interface with image uploads
-📍 Location Integration - Google Maps integration for venue details
-📝 Guest Registration - Built-in RSVP system with form validation
-🔗 SEO-Optimized URLs - AI-powered URL slug generation
-📧 Email Automation - Automated confirmation emails via Resend
-👥 Guest Management - Comprehensive attendee dashboard
-🎛️ Registration Control - Toggle registration on/off as needed
-                </li>
-
+              Create stunning event pages in one click - The modern event
+              management platform
+              <li>
+                ⚡ One-Click Event Creation - Generate beautiful event pages
+                instantly 🎨 Visual Event Editor - Drag-and-drop interface with
+                image uploads 📍 Location Integration - Google Maps integration
+                for venue details 📝 Guest Registration - Built-in RSVP system
+                with form validation 🔗 SEO-Optimized URLs - AI-powered URL slug
+                generation 📧 Email Automation - Automated confirmation emails
+                via Resend 👥 Guest Management - Comprehensive attendee
+                dashboard 🎛️ Registration Control - Toggle registration on/off
+                as needed
+              </li>
             </p>
             <a
               href="https://evntoswebapp.vercel.app/"
@@ -249,20 +257,13 @@
               target="_blank"
               rel="noopener"
             >
-              <i class="fas fa-external-link-alt"></i> Visit 
+              <i class="fas fa-external-link-alt"></i> Visit
             </a>
           </div>
         </div>
       </section>
     </div>
-    <button
-      class="theme-toggle btn"
-      id="theme-toggle"
-      title="Toggle Theme"
-      style="position: fixed; bottom: 1rem; right: 1rem"
-    >
-      <span class="theme-icon">🌙</span>
-    </button>
+
     <script src="../script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {

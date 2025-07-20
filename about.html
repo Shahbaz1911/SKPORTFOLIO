@@ -7,7 +7,10 @@
     <title>About Me</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       /* Who Am I Section Styling */
       .who-am-i-section {
@@ -23,7 +26,6 @@
       .who-am-i-section.visible {
         opacity: 1;
         transform: translateY(0);
-          
       }
       .who-am-i-container {
         display: flex;
@@ -52,7 +54,6 @@
       .who-am-i-section.visible .who-am-i-text {
         opacity: 1;
         transform: translateX(0);
-        
       }
       .who-am-i-text h1 {
         font-size: 2.5rem;
@@ -61,7 +62,7 @@
         position: relative;
       }
       .who-am-i-text h1::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -0.5rem;
         left: 0;
@@ -84,15 +85,25 @@
         overflow: hidden;
         white-space: nowrap;
         border-right: 0.15em solid var(--primary);
-        animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+        animation: typing 3s steps(40, end) forwards,
+          blink-caret 0.75s step-end infinite;
       }
       @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
       }
       @keyframes blink-caret {
-        from, to { border-color: transparent; }
-        50% { border-color: var(--primary); }
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: var(--primary);
+        }
       }
       [data-theme="dark"] .typewriter {
         border-right-color: var(--text-light);
@@ -244,7 +255,8 @@
         overflow: hidden;
         white-space: nowrap;
         border-right: 0.15em solid var(--primary);
-        animation: typing 4s steps(60, end) forwards, blink-caret 0.75s step-end infinite;
+        animation: typing 4s steps(60, end) forwards,
+          blink-caret 0.75s step-end infinite;
       }
       [data-theme="dark"] .quote-text {
         color: var(--text-light);
@@ -298,33 +310,68 @@
       }
     </style>
   </head>
-  <body>
+  <body data-theme="light">
     <nav id="sidebar-nav">
       <ul class="sidebar-links">
         <li>
-          <a href="index.html#profile" class="sidebar-link" data-section="profile" data-tooltip="Home">
+          <a
+            href="index.html#profile"
+            class="sidebar-link"
+            data-section="profile"
+            data-tooltip="Home"
+          >
             <i class="fas fa-home sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="about.html" class="sidebar-link active" data-section="about" data-tooltip="About">
+          <a
+            href="about.html"
+            class="sidebar-link active"
+            data-section="about"
+            data-tooltip="About"
+          >
             <i class="fas fa-user sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="index.html#experience" class="sidebar-link" data-section="experience" data-tooltip="Experience">
+          <a
+            href="index.html#experience"
+            class="sidebar-link"
+            data-section="experience"
+            data-tooltip="Experience"
+          >
             <i class="fas fa-briefcase sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="projects.html" class="sidebar-link" data-section="projects" data-tooltip="Projects">
+          <a
+            href="projects.html"
+            class="sidebar-link"
+            data-section="projects"
+            data-tooltip="Projects"
+          >
             <i class="fas fa-code sidebar-icon"></i>
           </a>
         </li>
         <li>
-          <a href="index.html#contact" class="sidebar-link" data-section="contact" data-tooltip="Contact">
+          <a
+            href="index.html#contact"
+            class="sidebar-link"
+            data-section="contact"
+            data-tooltip="Contact"
+          >
             <i class="fas fa-envelope sidebar-icon"></i>
           </a>
+        </li>
+        <li>
+          <button
+            class="sidebar-link theme-toggle-sidebar"
+            id="theme-toggle-sidebar"
+            title="Toggle Theme"
+            onclick="toggleTheme()"
+          >
+            <i class="fas fa-moon sidebar-icon theme-icon-sidebar"></i>
+          </button>
         </li>
       </ul>
     </nav>
@@ -337,7 +384,9 @@
       <ul class="menu-links">
         <li><a href="index.html#profile" onclick="toggleMenu()">Home</a></li>
         <li><a href="about.html" onclick="toggleMenu()">About</a></li>
-        <li><a href="index.html#experience" onclick="toggleMenu()">Experience</a></li>
+        <li>
+          <a href="index.html#experience" onclick="toggleMenu()">Experience</a>
+        </li>
         <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
         <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
       </ul>
@@ -350,28 +399,60 @@
             A curious Electronic Engineer with a passion for technology.
           </p>
           <p>
-            I am a driven individual with a strong foundation in electronics and a growing expertise in software development. My journey began with a fascination for how things work, leading me to explore both hardware and software solutions.
+            I am a driven individual with a strong foundation in electronics and
+            a growing expertise in software development. My journey began with a
+            fascination for how things work, leading me to explore both hardware
+            and software solutions.
           </p>
           <p>
-            I enjoy tackling complex problems, collaborating with teams, and learning from every experience. My mission is to bridge the gap between technology and real-world applications, creating solutions that are both innovative and accessible.
+            I enjoy tackling complex problems, collaborating with teams, and
+            learning from every experience. My mission is to bridge the gap
+            between technology and real-world applications, creating solutions
+            that are both innovative and accessible.
           </p>
           <div class="who-am-i-buttons">
-            <button class="who-am-i-btn" onclick="location.href='https://linkedin.com/'">LinkedIn</button>
-            <button class="who-am-i-btn" onclick="location.href='index.html#contact'">Contact Me</button>
+            <button
+              class="who-am-i-btn"
+              onclick="location.href='https://linkedin.com/'"
+            >
+              LinkedIn
+            </button>
+            <button
+              class="who-am-i-btn"
+              onclick="location.href='index.html#contact'"
+            >
+              Contact Me
+            </button>
           </div>
         </div>
         <div class="who-am-i-image">
-          <img src="https://media-alpha-green.vercel.app/portfolio/assets/IMG_0203.jpeg" alt="Shahbaz Khan" class="who-am-i-pic" />
+          <img
+            src="https://media-alpha-green.vercel.app/portfolio/assets/IMG_0203.jpeg"
+            alt="Shahbaz Khan"
+            class="who-am-i-pic"
+          />
           <div class="image-overlay">
             <p>Connect with Me!</p>
             <div class="overlay-socials">
-              <a href="https://linkedin.com/" class="overlay-social-btn" title="LinkedIn">
+              <a
+                href="https://linkedin.com/"
+                class="overlay-social-btn"
+                title="LinkedIn"
+              >
                 <i class="fab fa-linkedin"></i>
               </a>
-              <a href="https://github.com/Shahbaz1911/" class="overlay-social-btn" title="GitHub">
+              <a
+                href="https://github.com/Shahbaz1911/"
+                class="overlay-social-btn"
+                title="GitHub"
+              >
                 <i class="fab fa-github"></i>
               </a>
-              <a href="https://discord.com/" class="overlay-social-btn" title="Discord">
+              <a
+                href="https://discord.com/"
+                class="overlay-social-btn"
+                title="Discord"
+              >
                 <i class="fab fa-discord"></i>
               </a>
             </div>
@@ -405,17 +486,26 @@
         <li>
           <strong>Python Programming</strong>
           <span class="timeline">GUVI Geek Networks</span>
-          <p><i class="fas fa-certificate"></i>Completed a comprehensive course in Python programming, focusing on practical applications.</p>
+          <p>
+            <i class="fas fa-certificate"></i>Completed a comprehensive course
+            in Python programming, focusing on practical applications.
+          </p>
         </li>
         <li>
           <strong>HTML, CSS, & JavaScript Certification Course</strong>
           <span class="timeline">Udemy</span>
-          <p><i class="fas fa-certificate"></i>Mastered front-end web development skills through hands-on projects.</p>
+          <p>
+            <i class="fas fa-certificate"></i>Mastered front-end web development
+            skills through hands-on projects.
+          </p>
         </li>
         <li>
           <strong>The Complete Introduction to C++ Programming</strong>
           <span class="timeline">Udemy</span>
-          <p><i class="fas fa-certificate"></i>Developed proficiency in C++ programming for software development.</p>
+          <p>
+            <i class="fas fa-certificate"></i>Developed proficiency in C++
+            programming for software development.
+          </p>
         </li>
       </ul>
     </section>
@@ -425,48 +515,81 @@
         <li>
           <strong>Freelancer</strong>
           <span class="timeline">2024-2025</span>
-          <p><i class="fas fa-briefcase"></i>Worked on various web development projects, delivering custom solutions using HTML, CSS, JavaScript, PHP, and Bootstrap.</p>
+          <p>
+            <i class="fas fa-briefcase"></i>Worked on various web development
+            projects, delivering custom solutions using HTML, CSS, JavaScript,
+            PHP, and Bootstrap.
+          </p>
         </li>
         <li>
           <strong>Web Developer</strong>
           <span class="timeline">Micetravelo, 2023-2024</span>
-          <p><i class="fas fa-briefcase"></i>Designed and developed the company website using PHP, HTML, CSS, JavaScript, and Bootstrap, ensuring a responsive and user-friendly interface.</p>
+          <p>
+            <i class="fas fa-briefcase"></i>Designed and developed the company
+            website using PHP, HTML, CSS, JavaScript, and Bootstrap, ensuring a
+            responsive and user-friendly interface.
+          </p>
         </li>
         <li>
           <strong>Web Developer Intern</strong>
           <span class="timeline">Uncody, 2023</span>
-          <p><i class="fas fa-briefcase"></i>Contributed to the development of web applications, focusing on front-end and back-end technologies.</p>
+          <p>
+            <i class="fas fa-briefcase"></i>Contributed to the development of
+            web applications, focusing on front-end and back-end technologies.
+          </p>
         </li>
       </ul>
     </section>
     <div class="quote-container">
-      <p class="quote-text">There are no limits to what you can accomplish except the limits you place on your own thinking.</p>
+      <p class="quote-text">
+        There are no limits to what you can accomplish except the limits you
+        place on your own thinking.
+      </p>
     </div>
     <footer>
       <div class="footer-socials">
-        <a href="https://discord.com/" class="footer-social-btn discord" title="Discord">
+        <a
+          href="https://discord.com/"
+          class="footer-social-btn discord"
+          title="Discord"
+        >
           <i class="fab fa-discord"></i>
         </a>
-        <a href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a" class="footer-social-btn gmail" title="Gmail">
+        <a
+          href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a"
+          class="footer-social-btn gmail"
+          title="Gmail"
+        >
           <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://github.com/" class="footer-social-btn github" title="GitHub">
+        <a
+          href="https://github.com/"
+          class="footer-social-btn github"
+          title="GitHub"
+        >
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.linkedin.com/" class="footer-social-btn linkedin" title="LinkedIn">
+        <a
+          href="https://www.linkedin.com/"
+          class="footer-social-btn linkedin"
+          title="LinkedIn"
+        >
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
       <p>Copyright © 2022 Shahbaz Khan. All Rights Reserved.</p>
     </footer>
-    <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
-      <span class="theme-icon">🌙</span>
-    </button>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
     <script src="script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const sections = document.querySelectorAll(".about-section, .who-am-i-section");
+        const sections = document.querySelectorAll(
+          ".about-section, .who-am-i-section"
+        );
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry, index) => {
@@ -483,33 +606,36 @@
       });
     </script>
     <script>
-      (function(){
-        function c(){
-          var b=a.contentDocument||a.contentWindow.document;
-          if(b){
-            var d=b.createElement('script');
-            d.innerHTML="window.__CF$cv$params={r:'936d2cf1aff31d72',t:'MTc0NTc0NDkwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-            b.getElementsByTagName('head')[0].appendChild(d)
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'936d2cf1aff31d72',t:'MTc0NTc0NDkwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
-        if(document.body){
-          var a=document.createElement('iframe');
-          a.height=1;
-          a.width=1;
-          a.style.position='absolute';
-          a.style.top=0;
-          a.style.left=0;
-          a.style.border='none';
-          a.style.visibility='hidden';
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
           document.body.appendChild(a);
-          if('loading'!==document.readyState)c();
-          else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
-          else{
-            var e=document.onreadystatechange||function(){};
-            document.onreadystatechange=function(b){
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
               e(b);
-              'loading'!==document.readyState&&(document.onreadystatechange=e,c())
-            }
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
           }
         }
       })();
