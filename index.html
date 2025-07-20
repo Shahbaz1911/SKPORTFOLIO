@@ -7,8 +7,14 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Scheherazade+New:wght@700&family=Noto+Sans+Gurmukhi:wght@700&family=Poppins:wght@700&family=Playfair+Display:wght@700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Scheherazade+New:wght@700&family=Noto+Sans+Gurmukhi:wght@700&family=Poppins:wght@700&family=Playfair+Display:wght@700&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       /* Consistent Section Styling */
       section {
@@ -90,13 +96,24 @@
       }
       /* Animations */
       @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
       @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-5px); }
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
       }
       /* Button and Icon Hover Effects */
       .btn:hover {
@@ -234,7 +251,7 @@
             <span class="letter">A</span>
             <span class="letter">Z</span>
             <span class="letter"> </span>
-            <span class="letter"><br></span>
+            <span class="letter"><br /></span>
             <span class="letter">K</span>
             <span class="letter">H</span>
             <span class="letter">A</span>
@@ -249,31 +266,56 @@
         </div>
       </div>
     </div>
-    <div class="main-content" style="display: none;">
+    <div class="main-content" style="display: none">
       <nav id="sidebar-nav">
         <ul class="sidebar-links">
           <li>
-            <a href="#profile" class="sidebar-link" data-section="profile" data-tooltip="Home">
+            <a
+              href="#profile"
+              class="sidebar-link"
+              data-section="profile"
+              data-tooltip="Home"
+            >
               <i class="fas fa-home sidebar-icon"></i>
             </a>
           </li>
           <li>
-            <a href="#about" class="sidebar-link" data-section="about" data-tooltip="About">
+            <a
+              href="#about"
+              class="sidebar-link"
+              data-section="about"
+              data-tooltip="About"
+            >
               <i class="fas fa-user sidebar-icon"></i>
             </a>
           </li>
           <li>
-            <a href="experience.html" class="sidebar-link" data-section="experience" data-tooltip="Experience">
+            <a
+              href="experience.html"
+              class="sidebar-link"
+              data-section="experience"
+              data-tooltip="Experience"
+            >
               <i class="fas fa-briefcase sidebar-icon"></i>
             </a>
           </li>
           <li>
-            <a href="new-projects.html" class="sidebar-link" data-section="projects" data-tooltip="Projects">
+            <a
+              href="project-section.html"
+              class="sidebar-link"
+              data-section="projects"
+              data-tooltip="Projects"
+            >
               <i class="fas fa-code sidebar-icon"></i>
             </a>
           </li>
           <li>
-            <a href="#contact" class="sidebar-link" data-section="contact" data-tooltip="Contact">
+            <a
+              href="#contact"
+              class="sidebar-link"
+              data-section="contact"
+              data-tooltip="Contact"
+            >
               <i class="fas fa-envelope sidebar-icon"></i>
             </a>
           </li>
@@ -288,15 +330,22 @@
         <ul class="menu-links">
           <li><a href="#profile" onclick="toggleMenu()">Home</a></li>
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="experience.html" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="new-projects.html" onclick="toggleMenu()">Projects</a></li>
+          <li>
+            <a href="experience.html" onclick="toggleMenu()">Experience</a>
+          </li>
+          <li>
+            <a href="project-section.html" onclick="toggleMenu()">Projects</a>
+          </li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
       </nav>
       <section id="profile">
-        <div class="section-container ">
+        <div class="section-container">
           <div class="section__pic-container">
-            <img src="./assets/cropped_image.png" alt="John Doe profile picture" />
+            <img
+              src="./assets/cropped_image.png"
+              alt="John Doe profile picture"
+            />
           </div>
           <div class="section__text">
             <p class="section__text__p1">Hello, I'm</p>
@@ -356,7 +405,10 @@
             <div class="about-containers">
               <div class="details-container color-container">
                 <div class="article-container">
-                  <p>This is some of my skills and expertise that I have gained over time.</p>
+                  <p>
+                    This is some of my skills and expertise that I have gained
+                    over time.
+                  </p>
                 </div>
                 <div class="btn-container">
                   <button
@@ -378,12 +430,15 @@
             <div class="about-containers">
               <div class="details-container color-container">
                 <div class="article-container">
-                  <p>This is some of my projects that I have done and currently working on.</p>
+                  <p>
+                    This is some of my projects that I have done and currently
+                    working on.
+                  </p>
                 </div>
                 <div class="btn-container">
                   <button
                     class="btn btn-color-2 project-btn"
-                    onclick="location.href='new-projects.html'"
+                    onclick="location.href='project-section.html'"
                   >
                     Learn More
                   </button>
@@ -399,7 +454,11 @@
           <div class="contact-container">
             <div class="contact-info-upper-container">
               <div class="contact-info-container">
-                <a href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a" class="footer-social-btn gmail" title="Gmail">
+                <a
+                  href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a"
+                  class="footer-social-btn gmail"
+                  title="Gmail"
+                >
                   <i class="fas fa-envelope"></i>
                 </a>
                 <p>shahbazkhan19111@gmail</p>
@@ -444,7 +503,9 @@
                   ></textarea>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-color-1">Send Message</button>
+                  <button type="submit" class="btn btn-color-1">
+                    Send Message
+                  </button>
                 </div>
               </form>
             </div>
@@ -453,26 +514,50 @@
       </section>
       <footer>
         <div class="footer-socials">
-          <a href="https://discord.com/" class="footer-social-btn discord" title="Discord">
+          <a
+            href="https://discord.com/"
+            class="footer-social-btn discord"
+            title="Discord"
+          >
             <i class="fab fa-discord"></i>
           </a>
-          <a href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a" class="footer-social-btn gmail" title="Gmail">
+          <a
+            href="/cdn-cgi/l/email-protection#4e253b333f37326010123f2423243322231a"
+            class="footer-social-btn gmail"
+            title="Gmail"
+          >
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://github.com/Shahbaz1911/" class="footer-social-btn github" title="GitHub">
+          <a
+            href="https://github.com/Shahbaz1911/"
+            class="footer-social-btn github"
+            title="GitHub"
+          >
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/" class="footer-social-btn linkedin" title="LinkedIn">
+          <a
+            href="https://www.linkedin.com/"
+            class="footer-social-btn linkedin"
+            title="LinkedIn"
+          >
             <i class="fab fa-linkedin"></i>
           </a>
         </div>
         <p>Copyright © 2022 Shahbaz Khan. All Rights Reserved.</p>
       </footer>
-      <button class="theme-toggle btn" id="theme-toggle" title="Toggle Theme" style="position: fixed; bottom: 1rem; right: 1rem;">
+      <button
+        class="theme-toggle btn"
+        id="theme-toggle"
+        title="Toggle Theme"
+        style="position: fixed; bottom: 1rem; right: 1rem"
+      >
         <span class="theme-icon">🌙</span>
       </button>
     </div>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
     <script src="script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -492,5 +577,40 @@
         sections.forEach((section) => observer.observe(section));
       });
     </script>
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'936d2cf1aff31d72',t:'MTc0NTc0NDkwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'936d2cf1aff31d72',t:'MTc0NTc0NDkwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
 </html>

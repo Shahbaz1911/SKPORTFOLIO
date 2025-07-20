@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Website - Shahbaz Khan</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../mediaqueries.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Scheherazade+New:wght@700&family=Noto+Sans+Gurmukhi:wght@700&family=Poppins:wght@700&family=Playfair+Display:wght@700&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .project-detail-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      .project-content {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+      }
+      .project-sidebar {
+        flex: 1;
+        min-width: 250px;
+      }
+      .project-main {
+        flex: 2;
+      }
+      .project-image {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .project-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .project-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .project-title.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .project-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+      .project-title:hover::after {
+        width: 100%;
+      }
+      .project-meta div {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        transition: transform 0.3s ease;
+      }
+      .project-meta div:hover {
+        transform: translateX(10px);
+      }
+      .project-meta i {
+        font-size: 1.2rem;
+        color: var(--primary);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .project-meta div:hover i {
+        color: var(--text-dark);
+        transform: rotate(360deg);
+      }
+      [data-theme="dark"] .project-meta div:hover i {
+        color: var(--text-light);
+      }
+      .project-description {
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .project-description.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .btn-github {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #333;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .btn-github:hover {
+        background-color: #555;
+        transform: scale(1.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      .btn-github i {
+        transition: transform 0.3s ease;
+      }
+      .btn-github:hover i {
+        transform: rotate(10deg);
+      }
+      [data-theme="dark"] .btn-github {
+        background-color: #4b5563;
+      }
+      [data-theme="dark"] .btn-github:hover {
+        background-color: #6b7280;
+      }
+      @media (max-width: 768px) {
+        .project-content {
+          flex-direction: column;
+        }
+        .project-sidebar {
+          min-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div class="main-content">
+      <nav id="sidebar-nav">
+        <ul class="sidebar-links">
+          <li>
+            <a
+              href="../index.html#profile"
+              class="sidebar-link"
+              data-section="profile"
+              ><i class="fas fa-home sidebar-icon"></i
+            ></a>
+          </li>
+          <li>
+            <a href="../index.html#about" class="sidebar-link" data-section="about"
+              ><i class="fas fa-user sidebar-icon"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              href="../experience.html"
+              class="sidebar-link"
+              data-section="experience"
+              ><i class="fas fa-briefcase sidebar-icon"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              href="../project-section.html"
+              class="sidebar-link"
+              data-section="projects"
+              ><i class="fas fa-code sidebar-icon"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              href="../index.html#contact"
+              class="sidebar-link"
+              data-section="contact"
+              ><i class="fas fa-envelope sidebar-icon"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="hamburger-btn" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+      <nav id="top-menu">
+        <ul class="menu-links">
+          <li><a href="../index.html#profile" onclick="toggleMenu()">Home</a></li>
+          <li><a href="../about.html" onclick="toggleMenu()">About</a></li>
+          <li>
+            <a href="../experience.html" onclick="toggleMenu()">Experience</a>
+          </li>
+          <li>
+            <a href="../project-section.html" onclick="toggleMenu()">Projects</a>
+          </li>
+          <li>
+            <a href="../index.html#contact" onclick="toggleMenu()">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="project-detail-container py-16">
+        <img
+          src="../assets/projects/portfolio.png"
+          alt="Portfolio Website"
+          class="project-image"
+        />
+        <div class="project-content">
+          <div class="project-sidebar">
+            <h1 class="project-title">Portfolio Website</h1>
+            <div class="project-meta">
+              <div>
+                <i class="fas fa-tools"></i>
+                <span>Technologies: HTML, CSS, JavaScript, Tailwind CSS</span>
+              </div>
+              <div><i class="fas fa-calendar"></i> <span>Year: 2023</span></div>
+            </div>
+          </div>
+          <div class="project-main">
+            <p class="project-description">
+              A personal portfolio website designed to showcase my skills,
+              projects, and professional journey. The website features a
+              responsive design, a dynamic loading animation with multilingual
+              name display, and a theme toggle for accessibility. Built with
+              modern web technologies, it ensures a seamless user experience
+              across devices.
+            </p>
+            <a
+              href="https://shahbaz1911.netlify.app/"
+              class="btn-github"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt"></i> Visit 
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <button
+      class="theme-toggle btn"
+      id="theme-toggle"
+      title="Toggle Theme"
+      style="position: fixed; bottom: 1rem; right: 1rem"
+    >
+      <span class="theme-icon">🌙</span>
+    </button>
+    <script src="../script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Add visible class to project title and description for load animation
+        const projectTitle = document.querySelector(".project-title");
+        const projectDescription = document.querySelector(
+          ".project-description"
+        );
+
+        setTimeout(() => {
+          projectTitle.classList.add("visible");
+        }, 200);
+
+        setTimeout(() => {
+          projectDescription.classList.add("visible");
+        }, 400);
+      });
+    </script>
+  </body>
+</html>
