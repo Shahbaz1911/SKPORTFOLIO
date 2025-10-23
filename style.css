@@ -12,16 +12,6 @@
   --border: rgb(163, 163, 163);
 }
 
-[data-theme="dark"] {
-  --background: #1a1a1a;
-  --text: #cccccc;
-  --text-dark: #ffffff;
-  --text-light: #ffffff;
-  --primary: rgb(200, 200, 200);
-  --secondary: rgb(100, 100, 100);
-  --background-alt: rgb(42, 42, 42);
-  --border: rgb(80, 80, 80);
-}
 
 * {
   margin: 0;
@@ -103,12 +93,6 @@ p {
   animation: glowPulse 2s ease-in-out infinite;
 }
 
-[data-theme="dark"] .word {
-  text-shadow: 
-    0 0 5px rgba(0, 0, 0, 0.9),
-    0 0 10px rgba(0, 0, 0, 0.7),
-    0 0 15px rgba(0, 0, 0, 0.5);
-}
 
 .word.visible {
   opacity: 1;
@@ -185,17 +169,8 @@ p {
   font-weight: 700;
 }
 
-[data-theme="dark"] .loading-bar {
-  background: var(--border);
-}
 
-[data-theme="dark"] .loading-progress {
-  background: var(--text-light);
-}
 
-[data-theme="dark"] .loading-percentage {
-  color: var(--text-light);
-}
 
 /* GLOW ANIMATION */
 @keyframes glowPulse {
@@ -213,24 +188,7 @@ p {
     0 0 15px rgba(255, 255, 255, 0.5); }
 }
 
-[data-theme="dark"] .word {
-  animation: glowPulseDark 2s ease-in-out infinite;
-}
 
-@keyframes glowPulseDark {
-  0% { text-shadow: 
-    0 0 5px rgba(0, 0, 0, 0.9),
-    0 0 10px rgba(0, 0, 0, 0.7),
-    0 0 15px rgba(0, 0, 0, 0.5); }
-  50% { text-shadow: 
-    0 0 10px rgba(0, 0, 0, 1),
-    0 0 20px rgba(0, 0, 0, 0.9),
-    0 0 30px rgba(0, 0, 0, 0.7); }
-  100% { text-shadow: 
-    0 0 5px rgba(0, 0, 0, 0.9),
-    0 0 10px rgba(0, 0, 0, 0.7),
-    0 0 15px rgba(0, 0, 0, 0.5); }
-}
 
 /* TRANSITION */
 a,
@@ -257,9 +215,6 @@ a,
   transition: background 0.3s ease;
 }
 
-[data-theme="dark"] #sidebar-nav {
-  box-shadow: 2px 0 10px rgba(255, 255, 255, 0.1);
-}
 
 .sidebar-links {
   list-style: none;
@@ -290,13 +245,7 @@ a,
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-[data-theme="dark"] .sidebar-link {
-  color: var(--text-light);
-}
 
-[data-theme="dark"] .sidebar-icon {
-  color: var(--text-light);
-}
 
 /* Hover Effects */
 .sidebar-link:hover {
@@ -305,9 +254,6 @@ a,
   animation: pulseHover 0.6s ease-in-out infinite;
 }
 
-[data-theme="dark"] .sidebar-link:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
 
 .sidebar-link:hover .sidebar-icon {
   color: var(--primary);

@@ -132,25 +132,3 @@ function updateActiveLink() {
 
 window.addEventListener("scroll", updateActiveLink);
 window.addEventListener("load", updateActiveLink);
-
-// Theme Toggle Functionality
-function toggleTheme() {
-  const currentTheme = document.body.dataset.theme;
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
-  document.body.dataset.theme = newTheme;
-  
-  // Update sidebar theme toggle icon
-  const themeToggleSidebar = document.getElementById("theme-toggle-sidebar");
-  const themeIconSidebar = themeToggleSidebar?.querySelector(".theme-icon-sidebar");
-  
-  // Update sidebar theme toggle icon
-  if (themeIconSidebar) {
-    themeIconSidebar.className = newTheme === "dark" ? "fas fa-sun sidebar-icon theme-icon-sidebar" : "fas fa-moon sidebar-icon theme-icon-sidebar";
-  }
-}
-
-// Add event listener for sidebar theme toggle button
-const themeToggleSidebar = document.getElementById("theme-toggle-sidebar");
-if (themeToggleSidebar) {
-  themeToggleSidebar.addEventListener("click", toggleTheme);
-}
